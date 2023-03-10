@@ -4,8 +4,10 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         print("0")
     new = ""
-    res = ""
+    res = 0
     for i in range(1, len(sys.argv)):
+        res += int(sys.argv[i])
+        """
         size_i = len(sys.argv[i])
         size_r = len(res)
         if size_r == 0:
@@ -50,4 +52,5 @@ if __name__ == "__main__":
             if sys.argv[i][0] == '-' and res[0] == '-':
                 new = '-' + new
             res = new
+        """
     print(res)
