@@ -21,16 +21,22 @@ int is_palindrome(listint_t **head)
 		size++;
 		node = node->next;
 	}
+	if (size == 1)
+		return (1);
 	node = *head;
 	sum1 = sum2 = 0;
 	i = 1;
+	while (node && i <= (size / 2))
+	{
+		sum1 += node->n;
+		i++;
+		node = node->next;
+	}
+	if (size % 2 != 0 && node)
+		node = node->next;
 	while (node)
 	{
-		if (i <= (size / 2))
-			sum1 += node->n;
-		else
-			sum2 += node->n;
-		i++;
+		sum2 += node->n;
 		node = node->next;
 	}
 	if (sum1 == sum2)
