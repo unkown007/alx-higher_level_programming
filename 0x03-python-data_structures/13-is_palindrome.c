@@ -22,7 +22,7 @@ int is_palindrome(listint_t **head)
 		node = node->next;
 	}
 	if (size == 1)
-		return (1);
+		return (0);
 	node = *head;
 	sum1 = sum2 = 0;
 	i = 1;
