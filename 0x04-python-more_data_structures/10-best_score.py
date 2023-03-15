@@ -5,6 +5,7 @@ def best_score(a_dictionary):
         size = len(items)
         if size > 0:
             max_item = items[0][1]
+            idx = 0
             for i in range(1, size):
                 if max_item < items[i][1]:
                     max_item = items[i][1]
