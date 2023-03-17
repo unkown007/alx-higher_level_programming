@@ -27,6 +27,12 @@ def roman_to_int(roman_string):
     i = 0
     number = 0
     a, b = 0, 0
+    letter = roman_string[i]
+    if (i + 1) < size and letter == roman_string[i + 1]:
+        while i < size and letter == roman_string[i]:
+            a = roman[roman_string[i]]
+            number = number + a
+            i = i + 1
     while i < size:
         a = roman[roman_string[i]]
         if (i + 1) < size:
