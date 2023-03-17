@@ -5,7 +5,7 @@ def roman_to_int(roman_string):
             'C': 100, 'D': 500, 'M': 1000
             }
     check_count = ['V', 'L', 'D']
-    if roman_string is None:
+    if roman_string is None or type(roman_string) != str:
         return (0)
     for x in roman_string:
         if x not in roman:
