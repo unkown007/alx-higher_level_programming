@@ -24,7 +24,13 @@ def roman_to_int(roman_string):
             count = count + 1
             if count > 3:
                 return (0)
-    i = 0
+    number = 0
+    num = [roman[k] for k in roman_string]
+    for i in range(len(num)):
+        number += num[i]
+        if num[i - 1] < num[i] and i != 0:
+            number -= (num[i - 1] + num[i - 1])
+    '''i = 0
     number = 0
     a, b = 0, 0
     letter = roman_string[i]
@@ -44,5 +50,5 @@ def roman_to_int(roman_string):
                 number = number + (b + a)
         else:
             number = number + a
-        i = i + 1
+        i = i + 1'''
     return (number)
