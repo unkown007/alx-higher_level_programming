@@ -9,6 +9,3 @@ def safe_print_integer_err(value):
     except ValueError as ve:
         print("{}".format(ve), file=sys.stderr)
         return (False)
-    except TypeError as te:
-        print("{}".format(te), file=sys.stderr)
-        return (False)
