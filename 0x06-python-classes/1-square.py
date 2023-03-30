@@ -8,7 +8,7 @@ class Square:
     """
     def __init__(self, size):
         """Defines private instance attribute
-        
+
         Args:
             size(int): initialize size value
         """
