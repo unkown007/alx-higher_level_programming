@@ -88,8 +88,10 @@ class Square:
         if self.size == 0:
             print()
         for i in range(0, self.size):
-            for spaces in range(0, self.__position[0]):
-                print(" ", end="")
+            if not (self.__position[1] > 0) \
+                    or self.__position[0] == self.__position[1]:
+                for spaces in range(0, self.__position[0]):
+                    print(" ", end="")
             for j in range(0, self.size):
                 print("#", end="")
             print()
