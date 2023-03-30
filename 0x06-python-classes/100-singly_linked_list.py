@@ -80,6 +80,8 @@ class SinglyLinkedList:
     def __str__(self):
         """Prints all elements of the list, line by line
         """
+        if self.__head is None:
+            return ""
         node = self.__head
         while node.next_node is not None:
             print("{:d}".format(node.data))
