@@ -101,7 +101,6 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         output = ""
-        print(Rectangle.print_symbol)
         for i in range(0, self.__height):
             for j in range(0, self.__width):
                 output += str(self.print_symbol)
