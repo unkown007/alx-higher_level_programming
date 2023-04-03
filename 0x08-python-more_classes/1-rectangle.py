@@ -4,6 +4,9 @@
 
 
 class Rectangle:
+    """
+        This is a Rectangle class
+    """
     def __init__(self, width=0, height=0):
         """Initialize and validades the new object attributes
 
