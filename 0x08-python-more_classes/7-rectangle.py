@@ -10,8 +10,10 @@ class Rectangle:
         Attributes:
             number_of_instances(int): integer number of create instances of
             Rectangle class
+            print_symbol(any type): represents the output of the rectangle
     """
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initialize and validades the new object attributes
@@ -99,9 +101,10 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         output = ""
+        print(Rectangle.print_symbol)
         for i in range(0, self.__height):
             for j in range(0, self.__width):
-                output += '#'
+                output += str(self.print_symbol)
             if i != (self.__height - 1):
                 output += "\n"
         return output
