@@ -4,6 +4,7 @@ import math
 
 
 class MagicClass:
+    """Define a MagicClass"""
     def __init__(self, radius):
         """Initialize attributes of the object
         Args:
