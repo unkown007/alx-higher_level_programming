@@ -7,6 +7,7 @@ import math
 
 class MagicClass:
     """Represent a circle"""
+
     def __init__(self, radius=0):
         """Initialize attributes of the object
         Args:
@@ -16,10 +17,8 @@ class MagicClass:
             TypeError: if radius is not a number
         """
         self.__radius = 0
-
-        if type(self.radius) is not int and type(self.radius) is not float:
+        if type(radius) is not int and type(radius) is not float:
             raise TypeError("radius must be a number")
-
         self.__radius = radius
 
     def area(self):
