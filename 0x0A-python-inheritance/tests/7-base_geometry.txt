@@ -1,0 +1,39 @@
+=============================
+How to Use 2-base_geometry.py
+=============================
+
+This module defines a class BaseGeometry
+
+=====
+Usage
+=====
+
+The BaseGeometry have two methods ``area()`` and ``integer_validator(...)``
+``integer_validator`` validates the value of a specified name and
+raises TypeError if value is not int and ValueError if value is less or equal
+to 0
+
+::
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("my_int", 12)
+	>>> bg.integer_validator("width", 89)
+	>>> try:
+	...	bg.integer_validator("name", "John")
+	... except Exception as e:
+	...	print("[{}] {}".format(e.__class__.__name__, e))
+	...
+	[TypeError] name must be an integer
+	>>> try:
+        ...     bg.integer_validator("age", 0)
+        ... except Exception as e:
+        ...     print("[{}] {}".format(e.__class__.__name__, e))
+        ...
+	[ValueError] age must be greater than 0
+	>>> try:
+        ...     bg.integer_validator("distance", -4)
+        ... except Exception as e:
+        ...     print("[{}] {}".format(e.__class__.__name__, e))
+        ...
+	[ValueError] distance must be greater than 0
