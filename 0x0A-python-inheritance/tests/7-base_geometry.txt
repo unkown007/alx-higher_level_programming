@@ -30,9 +30,10 @@ in a TypeError.
 
 ::
 
-    #>>> bg = BaseGeometry(None)
+    >>> bg = BaseGeometry(None)
     Traceback (most recent call last):
-    TypeError: object() takes no parameters
+      File "<stdin>", line 1, in <module>
+    TypeError: BaseGeometry() takes no arguments
 
 Methods
 =======
