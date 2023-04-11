@@ -25,3 +25,8 @@ takes no parameter
 	Traceback (most recent call last):
 	TypeError: '<' not supported between instances of 'str' and 'int'
 	>>> my_list.remove('4')
+	>>> my = MyList()
+	>>> print(my)
+	[]
+	>>> my.print_sorted()
+	[]
