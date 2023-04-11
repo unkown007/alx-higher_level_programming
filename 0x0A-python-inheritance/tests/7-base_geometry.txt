@@ -49,6 +49,9 @@ implemented.
     <bound method BaseGeometry.area of <7-base_geometry.BaseGeometry 
      object at...>>
 
+>>> print(bg.area) # doctest: +ELLIPSIS
+<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at...>>
+
 ::
 
     >>> bg.area()
@@ -133,11 +136,6 @@ Both ``name`` and ``value`` must be provided. Otherwise, a TypeError is raised.
     Traceback (most recent call last):
     TypeError: integer_validator() missing 2 required positional arguments: 
     'name' and 'value'
-
->>> bg.integer_validator()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 ::
 
