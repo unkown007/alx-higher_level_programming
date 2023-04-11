@@ -141,11 +141,6 @@ Both ``name`` and ``value`` must be provided. Otherwise, a TypeError is raised.
     TypeError: integer_validator() missing 1 required positional argument: 
     'value'
 
-     >>> bg.integer_validator(None)
-     Traceback (most recent call last):
-       File "<stdin>", line 1, in <module>
-     TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
-
 The method assumes the paramter ``name`` will be a string, but ``name`` of any
 type will be printed.
 
