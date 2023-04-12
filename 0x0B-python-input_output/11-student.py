@@ -34,6 +34,9 @@ class Student:
         Args:
             json(dictionary): dictionary object from an instance
         """
-        self.first_name = json['first_name']
-        self.last_name = json['last_name']
-        self.age = json['age']
+        if 'first_name' in json:
+            self.first_name = json['first_name']
+        if 'last_name' in json:
+            self.last_name = json['last_name']
+        if 'age' in json:
+            self.age = json['age']
