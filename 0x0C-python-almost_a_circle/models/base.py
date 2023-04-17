@@ -62,7 +62,7 @@ class Base:
             list of json string
         """
         if json_string is None:
-            return "[]"
+            return []
         return json.loads(json_string)
 
     @classmethod
