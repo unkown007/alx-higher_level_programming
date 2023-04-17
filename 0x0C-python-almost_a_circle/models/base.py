@@ -4,6 +4,7 @@
 
 import os.path
 import json
+import csv
 import models
 
 
@@ -92,4 +93,46 @@ class Base:
         list_dictionary = cls.from_json_string(string)
         for x in list_dictionary:
             objs.append(cls.create(**x))
+        return objs
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serialize a list of objects to a csv file
+        Args:
+            list_objs(list): list of objects
+        """
+        filename = cls.__name__ + ".csv"
+        if cls.__name__ == "Rectangle":
+            fieldnames = ["id", "width", "height", "x", "y"]
+        elif cls.__name__ == "Square":
+            fieldnames = ["id", "size", "x", "y"]
+        if list_objs is None:
+            with open(filename, "w", newline="") as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writerow({})
+        else:
+            with open(filename, "w", newline="", encoding="utf-8") as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserialize from a csv file"""
+        filename = cls.__name__ + ".csv"
+        objs = []
+
+        if not os.path.exists(filename):
+            return []
+
+        if cls.__name__ == "Rectangle":
+            fieldnames = ["id", "width", "height", "x", "y"]
+        elif cls.__name__ == "Square":
+            fieldnames = ["id", "size", "x", "y"]
+        with open(filename, "r", newline="", encoding="utf-8") as csvfile:
+            reader = csv.DictReader(csvfile, fieldnames=fieldnames)
+            for row in reader:
+                for key in row:
+                    row[key] = int(row[key])
+                objs.append(cls.create(**row))
         return objs
