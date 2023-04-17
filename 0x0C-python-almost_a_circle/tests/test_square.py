@@ -3,4 +3,4 @@
 import unittest
 from models.square import Square
 import sys
-from io import 
+from io import StringIO
