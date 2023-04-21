@@ -24,5 +24,11 @@ class TestRectangle(unittest.TestCase):
         """
         sys.stdout = sys.__stdout__
 
-    def test_object(self):
+    def test_object_1(self):
         self.assertIs(type(Rectangle(1, 2)), Rectangle)
+
+    def test_object_2(self):
+        self.assertIs(type(Rectangle(1, 2, 3)), Rectangle)
+
+    def test_object_3(self):
+        self.assertIs(type(Rectangle(1, 2, 3, 4)), Rectangle)
