@@ -66,3 +66,20 @@ class TestSquare(unittest.TestCase):
         dic = {'id': 1, 'size': 1, 'x': 0, 'y': 0}
         self.assertEqual(obj.to_dictionary(), dic)
 
+    def test_save_to_file_1(self):
+        Square.save_to_file(None)
+        with open("Square.json", "r", encoding="utf-8") as jsonfile:
+            self.assertEqual(jsonfile.read(), "[]")
+
+    def test_save_to_file_2(self):
+        Square.save_to_file([])
+        with open("Square.json", "r", encoding="utf-8") as jsonfile:
+            self.assertEqual(jsonfile.read(), "[]")
+
+    def test_save_to_file_3(self):
+        obj = Square(1, id=1)
+        Square.save_to_file([obj])
+        with open("Square.json", "r", encoding="utf-8") as jsonfile:
+            self.assertEqual(
+                    jsonfile.read(),
+                    "[{\"id\": 1, \"size\": 1, \"x\": 0, \"y\": 0}]")
