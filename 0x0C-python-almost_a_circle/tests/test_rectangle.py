@@ -32,3 +32,42 @@ class TestRectangle(unittest.TestCase):
 
     def test_object_3(self):
         self.assertIs(type(Rectangle(1, 2, 3, 4)), Rectangle)
+
+    def test_object_4(self):
+        self.assertRaises(TypeError, Rectangle, "1", 2)
+
+    def test_object_5(self):
+        self.assertRaises(TypeError, Rectangle, 1, "2")
+
+    def test_object_6(self):
+        self.assertRaises(TypeError, Rectangle, 1, 2, "3")
+
+    def test_object_7(self):
+        self.assertRaises(TypeError, Rectangle, 1, 2, 3, "4")
+
+    def test_object_8(self):
+        self.assertRaises(ValueError, Rectangle, -1, 2)
+
+    def test_object_9(self):
+        self.assertRaises(ValueError, Rectangle, 1, -2)
+
+    def test_object_10(self):
+        self.assertRaises(ValueError, Rectangle, 0, 2)
+
+    def test_object_11(self):
+        self.assertRaises(ValueError, Rectangle, 1, 0)
+
+    def test_object_12(self):
+        self.assertRaises(ValueError, Rectangle, 1, 2, -3)
+
+    def test_object_13(self):
+        self.assertRaises(ValueError, Rectangle, 1, 2, 3, -4)
+
+    def test_area(self):
+        obj = Rectangle(1, 2)
+        self.assertEqual(obj.area(), 2)
+
+    def test_str(self):
+        obj = Rectangle(1, 2, id=1)
+        string = obj.__str__()
+        self.assertEqual(string, "[Rectangle] (1) 0/0 - 1/2")
