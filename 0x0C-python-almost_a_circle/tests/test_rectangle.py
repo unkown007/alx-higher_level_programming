@@ -16,13 +16,13 @@ class TestRectangle(unittest.TestCase):
         """
         function to redirect stdout
         """
-        sys.stdout = StringIO()
+        #sys.stdout = StringIO()
 
     def tearDown(self):
         """
         cleans everything
         """
-        sys.stdout = sys.__stdout__
+        #sys.stdout = sys.__stdout__
 
     def test_object_1(self):
         self.assertIs(type(Rectangle(1, 2)), Rectangle)
@@ -71,3 +71,33 @@ class TestRectangle(unittest.TestCase):
         obj = Rectangle(1, 2, id=1)
         string = obj.__str__()
         self.assertEqual(string, "[Rectangle] (1) 0/0 - 1/2")
+
+    def test_display_1(self):
+        tmp = sys.stdout
+        result = StringIO()
+        sys.stdout = result
+        obj = Rectangle(2, 2)
+        obj.display()
+        sys.stdout = tmp
+        output = "##\n##\n"
+        self.assertEqual(result.getvalue(), output)
+
+    def test_display_2(self):
+        tmp = sys.stdout
+        result = StringIO()
+        sys.stdout = result
+        obj = Rectangle(2, 2, 1)
+        obj.display()
+        sys.stdout = tmp
+        output = " ##\n ##\n"
+        self.assertEqual(result.getvalue(), output)
+
+    def test_display_3(self):
+        tmp = sys.stdout
+        result = StringIO()
+        sys.stdout = result
+        obj = Rectangle(2, 2, 1, 1)
+        obj.display()
+        sys.stdout = tmp
+        output = "\n ##\n ##\n"
+        self.assertEqual(result.getvalue(), output)
