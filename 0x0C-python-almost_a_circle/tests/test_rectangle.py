@@ -101,3 +101,23 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = tmp
         output = "\n ##\n ##\n"
         self.assertEqual(result.getvalue(), output)
+
+    def test_save_to_file_1(self):
+        obj = Rectangle(2,2)
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r", encoding="utf-8") as jsonfile:
+            self.assertEqual(jsonfile.read(), "[]")
+
+    def test_save_to_file_2(self):
+        obj = Rectangle(2,2)
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r", encoding="utf-8") as jsonfile:
+            self.assertEqual(jsonfile.read(), "[]")
+
+    def test_save_to_file_3(self):
+        obj = Rectangle(1, 2, id=1)
+        Rectangle.save_to_file([obj])
+        with open("Rectangle.json", "r", encoding="utf-8") as jsonfile:
+            self.assertEqual(
+                    jsonfile.read(),
+                    "[{\"id\": 1, \"width\": 1, \"height\": 2, \"x\": 0, \"y\": 0}]")
