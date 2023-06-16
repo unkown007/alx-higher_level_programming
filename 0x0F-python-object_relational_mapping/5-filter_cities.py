@@ -13,9 +13,12 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute(
             "SELECT c.name "
+            "FROM cities AS c "
+            "WHERE c.state_id in ( "
+            "SELECT s.id "
             "FROM states AS s "
-            "INNER JOIN cities AS c "
-            "ON c.state_id = s.id AND s.name = %s", (argv[4], ))
+            "WHERE s.name = %s)",
+            (argv[4], ))
     rows = cur.fetchall()
     for i in range(len(rows)):
         print(rows[i][0], end="")
