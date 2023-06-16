@@ -22,4 +22,6 @@ if __name__ == "__main__":
     rows = cur.fetchall()
     for i in range(len(rows)):
         print(rows[i][0], end="")
-        print(', ', end="") if len(rows) - 1 > i else print()
+        if len(rows) - 1 > i:
+            print(', ', end="")
+    print()
