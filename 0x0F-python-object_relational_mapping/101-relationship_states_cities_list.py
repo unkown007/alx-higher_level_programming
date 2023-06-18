@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-""" lists all State objects, and corresponding City objects,
-contained in the database """
-
-
+"""
+All states via SQLAlchemy
+"""
 from sys import argv
 from relationship_state import Base, State
 from relationship_city import City
-from sqlalchemy import create_engine
+from sqlalchemy import (create_engine)
 from sqlalchemy.orm import Session
-
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
