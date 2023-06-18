@@ -19,8 +19,8 @@ if __name__ == "__main__":
             pool_pre_ping=True)
     session = Session(engine)
     for state in session.query(State).all():
-        print("{:d}: {}".format(state.id, state.name))
+        print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print("\t{:d}: {}".format(city.id, city.name))
+            print("    {}: {}".format(city.id, city.name))
     session.commit()
     session.close()
