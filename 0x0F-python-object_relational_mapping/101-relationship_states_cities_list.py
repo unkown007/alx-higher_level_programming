@@ -7,7 +7,7 @@ from sys import argv
 from relationship_state import Base, State
 from relationship_city import City
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -18,7 +18,8 @@ if __name__ == "__main__":
                 argv[3]),
             pool_pre_ping=True)
     Base.metadata.create_all(engine)
-    session = Session(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
     for state in session.query(State).all():
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
