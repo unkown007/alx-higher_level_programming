@@ -14,4 +14,6 @@ if __name__ == "__main__":
             key=lambda d: d.get('commit').get('author').get('date'),
             reverse=True)
     for x in sorted_data[:10]:
-        print("{}: {}".format(x['sha'], x['commit']['author']['name']))
+        print("{}: {}".format(
+            x.get('sha'),
+            x.get('commit').get('author').get('name')))
