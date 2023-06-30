@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Sends a request to the URL and display the value of the 
+""" Sends a request to the URL and display the value of the
 X-request-Id """
 from sys import argv
 import urllib.request
