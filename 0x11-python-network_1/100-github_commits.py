@@ -8,4 +8,6 @@ from requests import get
 if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(argv[1], argv[2])
     r = get(url)
-    print(r.json())
+    data = r.json()[:10]
+    for x in data:
+        print("{}: {}".format(x['sha'], x['commit']['author']['name']))
