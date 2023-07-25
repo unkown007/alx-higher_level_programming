@@ -7,20 +7,12 @@ request(process.argv[2], (error, response, body) => {
     return;
   }
   const results = JSON.parse(body);
-  let size = 0;
   const tasks = {};
-  for (let i = 0; i < results.length;) {
-    let count = 0;
-    const userId = results[i].userId;
-    while (size < results.length && userId === results[size].userId) {
-      if (results[size].completed) {
-        count++;
-      }
-      size++;
-    }
-    i = size;
-    if (count !== 0) {
-      tasks[`${userId}`] = count++;
+  for (let i = 0; i < results.length; i++) {
+    const status = results[i].completed;
+    const key = results[i].userId.toString();
+    if (status) {
+      tasks[key] = tasks[key] ? tasks[key] + 1 : 1;
     }
   }
   console.log(tasks);
