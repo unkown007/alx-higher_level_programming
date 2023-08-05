@@ -1,8 +1,9 @@
 $(document).ready(function () {
-  $.getJSON(
-    'https://hellosalut.stefanbohacek.dev/?lang=fr',
-    (helloData) => {
-      $('DIV#hello').text(helloData.name);
+  $.ajax({
+    url: 'https://hellosalut.stefanbohacek.dev/?lang=fr',
+    method: 'GET',
+    success: (data, textStatus, xhr) => {
+      $('DIV#hello').text(`${data.hello}`);
     }
-  );
+  });
 });
